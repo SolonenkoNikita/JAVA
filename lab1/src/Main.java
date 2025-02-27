@@ -188,13 +188,137 @@ public class Main
         System.out.println("Lotery combination: " + lottery);
     }
 
+    public static boolean is_magic(int[][] matrix)
+    {
+        int summ = 0;
+        for(int number : matrix[0])
+            summ += number;
+        for(int i = 1; i < matrix.length; ++i)
+        {
+            int summa = 0;
+            for(int number : matrix[i])
+                summa += number;
+            if(summa != summ)
+                return false;
+        }
+        for (int j = 0; j < matrix.length; ++j)
+        {
+            int summa = 0;
+            for (int i = 0; i < matrix.length; ++i)
+                summa += matrix[i][j];
+            if (summa != summ)
+                return false;
+        }
+        int sum1 = 0;
+        for (int i = 0; i < matrix.length; ++i)
+            sum1 += matrix[i][i];
+        if (sum1 != summ)
+            return false;
+
+        int diagSum2 = 0;
+        for (int i = 0; i < matrix.length; ++i)
+            diagSum2 += matrix[i][matrix.length - 1 - i];
+        if (diagSum2 != summ)
+            return false;
+        return true;
+    }
+
+    public static void task14()
+    {
+        ArrayList<int[]> array_rows = new ArrayList<>();
+        System.out.println("Input matrix:");
+        Scanner scanner = new Scanner(System.in);
+        while(true)
+        {
+            String str = scanner.nextLine().trim();
+            if(str.isEmpty())
+                break;
+            String[] parts = str.split("\\s+");
+            int[] row = new int[parts.length];
+            try
+            {
+                for (int i = 0; i < parts.length; ++i)
+                    row[i] = Integer.parseInt(parts[i]);
+                array_rows.add(row);
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Invalid input. Please enter only numbers separated by spaces.");
+                continue;
+            }
+        }
+        if (array_rows.isEmpty())
+        {
+            System.out.println("Matrix is empty.");
+            return;
+        }
+        int size = array_rows.size();
+        int[][] matrix = new int[size][];
+        for (int i = 0; i < size; ++i)
+            matrix[i] = array_rows.get(i);
+        if (is_magic(matrix))
+            System.out.println("Matrix is magic square");
+        else
+            System.out.println("Matrix is magic square");
+    }
+
+    public static void task15(int n)
+    {
+        ArrayList<ArrayList<Integer>> triangle = new ArrayList<>();
+        for (int i = 0; i < n; ++i)
+        {
+            ArrayList<Integer> row = new ArrayList<>();
+            for (int j = 0; j <= i; ++j)
+            {
+                if (j == 0 || j == i)
+                    row.add(1);
+                else
+                    row.add(triangle.get(i - 1).get(j - 1) + triangle.get(i - 1).get(j));
+            }
+            triangle.add(row);
+        }
+        int max_length = 0;
+        for (ArrayList<Integer> row : triangle)
+        {
+            for (Integer num : row)
+                max_length = Math.max(max_length, String.valueOf(num).length());
+        }
+
+        int triangle_width = triangle.size() * (max_length + 1);
+
+        for (int i = 0; i < triangle.size(); ++i)
+        {
+            ArrayList<Integer> row = triangle.get(i);
+            int row_width = row.size() * (max_length + 1);
+            int padding = (triangle_width - row_width) / 2;
+
+            for (int k = 0; k < padding; ++k)
+                System.out.print(" ");
+
+            for (int j = 0; j < row.size(); ++j)
+            {
+                String formattedNumber = String.format("%" + max_length + "d", row.get(j));
+                System.out.print(formattedNumber + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void task16(double gen_number, double... array_value)
+    {
+        double summ = gen_number;
+        for(double value : array_value)
+            summ += value;
+        System.out.println("Average = " +
+                (array_value.length == 0 ? summ : summ / (array_value.length + 1)));
+    }
+
     public static void main(String[] args)
     {
         int number = 1;
-
         while(number != 0)
         {
-            number = valid_input("Input number 1 - 18 (0 - for exit): ");
+            number = valid_input("Input number 1 - 16 (0 - for exit): ");
             switch (number)
             {
                 case 0:
@@ -234,6 +358,16 @@ public class Main
                     break;
                 case 13:
                     task13();
+                    break;
+                case 14:
+                    task14();
+                    break;
+                case 15:
+                    int n = valid_input("Input n: ");
+                    task15(n);
+                    break;
+                case 16:
+                    task16(1, 2, 3, 4, 5, 6, 7, 8);
                     break;
                 default:
                     System.out.println("Incorrect!");
