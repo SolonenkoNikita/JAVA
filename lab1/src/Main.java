@@ -78,15 +78,15 @@ public class Main
     }
 
     public static void task5() {
-        double max_double = Double.MAX_VALUE;
-        int maxInt = (int)max_double;
-        System.out.println("Max double: " + max_double);
+        double maxDouble = Double.MAX_VALUE;
+        int maxInt = (int)maxDouble;
+        System.out.println("Max double: " + maxDouble);
         System.out.println("Min int: " + maxInt);
     }
 
     public static void task6(int n) {
         BigInteger number = BigInteger.valueOf(1);
-        for (int i = 1; i < 1001;++i)
+        for (int i = 1; i < n;++i)
             number = number.multiply(BigInteger.valueOf(i));
 
         System.out.println(number);
@@ -116,8 +116,8 @@ public class Main
         Scanner in = new Scanner(System.in);
         System.out.print("Input string: ");
         string = in.nextLine();
-        String[] new_str = string.split("\\s+");
-        for(String s : new_str)
+        String[] newStr = string.split("\\s+");
+        for(String s : newStr)
             System.out.println(s);
     }
 
@@ -204,7 +204,7 @@ public class Main
     }
 
     public static void task14() {
-        ArrayList<int[]> array_rows = new ArrayList<>();
+        ArrayList<int[]> arrayRows = new ArrayList<>();
         System.out.println("Input matrix:");
         Scanner scanner = new Scanner(System.in);
         while(true)
@@ -217,21 +217,21 @@ public class Main
             try {
                 for (int i = 0; i < parts.length; ++i)
                     row[i] = Integer.parseInt(parts[i]);
-                array_rows.add(row);
+                arrayRows.add(row);
             }
             catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter only numbers separated by spaces.");
                 continue;
             }
         }
-        if (array_rows.isEmpty()) {
+        if (arrayRows.isEmpty()) {
             System.out.println("Matrix is empty.");
             return;
         }
-        int size = array_rows.size();
+        int size = arrayRows.size();
         int[][] matrix = new int[size][];
         for (int i = 0; i < size; ++i)
-            matrix[i] = array_rows.get(i);
+            matrix[i] = arrayRows.get(i);
         if (isMagic(matrix))
             System.out.println("Matrix is magic square");
         else
@@ -256,12 +256,12 @@ public class Main
                 maxLength = Math.max(maxLength, String.valueOf(num).length());
         }
 
-        int triangle_width = triangle.size() * (maxLength + 1);
+        int triangleWidth = triangle.size() * (maxLength + 1);
 
         for (int i = 0; i < triangle.size(); ++i) {
             ArrayList<Integer> row = triangle.get(i);
-            int row_width = row.size() * (maxLength + 1);
-            int padding = (triangle_width - row_width) / 2;
+            int rowWidth = row.size() * (maxLength + 1);
+            int padding = (triangleWidth - rowWidth) / 2;
 
             for (int k = 0; k < padding; ++k)
                 System.out.print(" ");
@@ -274,15 +274,15 @@ public class Main
         }
     }
 
-    public static void task16(double genNumber, double... array_value) {
+    public static void task16(double genNumber, double... arrayValue) {
         double summ = genNumber;
-        for(double value : array_value)
+        for(double value : arrayValue)
             summ += value;
         System.out.println("Average = " +
-                (array_value.length == 0 ? summ : summ / (array_value.length + 1)));
+                (arrayValue.length == 0 ? summ : summ / (arrayValue.length + 1)));
     }
 
-    public static <T extends Number> double AdditionalTask(T ... args)
+    public static <T extends Number> double additionalTask(T ... args)
     {
         double summ = 0.0;
         for(T value : args) {
@@ -340,6 +340,11 @@ public class Main
 
     public static void main(String[] args) {
         int number = 1;
+        //a % b = a - (a / b) * b
+        System.out.println(7 % -5);
+        System.out.println(7 % 5);
+        System.out.println(-7 % 5);
+        System.out.println(-7 % -5);
         while(number != 0) {
             number = validInput("Input number 1 - 19 (0 - for exit): ");
             switch (number) {
@@ -392,7 +397,7 @@ public class Main
                     task16(1, 2, 3, 4, 5, 6, 7, 8);
                     break;
                 case 17:
-                    double value = AdditionalTask(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+                    double value = additionalTask(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
                     System.out.println("Summ = " + value);
                     break;
                 case 18:
