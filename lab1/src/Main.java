@@ -5,35 +5,33 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.HashMap;
 
 public class Main
 {
-    public static int valid_input(String s)
-    {
+    public static int validInput(String s) {
         int digit = 0;
-        boolean valid_input = false;
+        boolean valid = false;
 
-        while (!valid_input)
-        {
+        while (!valid) {
             System.out.print(s);
             Scanner input = new Scanner(System.in);
-            if (input.hasNextInt())
-            {
+
+            if (input.hasNextInt()) {
                 digit = input.nextInt();
-                valid_input = true;
+                valid = true;
             }
-            else
-            {
+            else {
                 System.out.println("Invalid input. Please enter an integer.");
                 input.next();
             }
         }
+
         return digit;
     }
 
-    public static void task1()
-    {
-        int digit = valid_input("Input number: ");
+    public static void task1() {
+        int digit = validInput("Input number: ");
 
         String binary = Integer.toBinaryString(digit);
         System.out.println("Binary: " + binary);
@@ -45,11 +43,9 @@ public class Main
         System.out.println("Hex: " + hex);
     }
 
-    public static void task2()
-    {
-        int degree = valid_input("Input degree: ");
-        if(Math.abs(degree) > 360)
-        {
+    public static void task2() {
+        int degree = validInput("Input degree: ");
+        if(Math.abs(degree) > 360) {
             System.out.print("U lose degree, u should input -360 <= degree <= 360\n");
             return;
         }
@@ -59,12 +55,11 @@ public class Main
         System.out.println("Normal with floorMod: " + Math.floorMod(degree, 360));
     }
 
-    public static void task3()
-    {
+    public static void task3() {
         System.out.print("Input three numbers:\n");
-        int a = valid_input("Input first: ");
-        int b = valid_input("Input second: ");
-        int c = valid_input("Input third: ");
+        int a = validInput("Input first: ");
+        int b = validInput("Input second: ");
+        int c = validInput("Input third: ");
 
         if (a >= b && a >= c)
             System.out.println("The largest number(if): " + a);
@@ -76,41 +71,35 @@ public class Main
         System.out.println("The largest number (Math.max()): " + Math.max(Math.max(a, b), c));
     }
 
-    public static void task4()
-    {
-        System.out.println("Double.MIN  = " + Double.MIN_VALUE);
-        System.out.println("Double.MAX  = " + Double.MAX_VALUE);
+    public static void task4() {
+        System.out.println("Min double: " + Math.nextUp(0.0));
+
+        System.out.println("Max double: " + Double.MAX_VALUE);
     }
 
-    public static void task5()
-    {
+    public static void task5() {
         double max_double = Double.MAX_VALUE;
-        int max_int = (int)max_double;
+        int maxInt = (int)max_double;
         System.out.println("Max double: " + max_double);
-        System.out.println("Min int: " + max_int);
+        System.out.println("Min int: " + maxInt);
     }
 
-    public static void task6(int n)
-    {
+    public static void task6(int n) {
         BigInteger number = BigInteger.valueOf(1);
-        for(BigInteger i = BigInteger.valueOf(1); i.compareTo(BigInteger.valueOf(n + 1)) != 0; i = i.add(BigInteger.valueOf(1)))
-        {
-            number = number.multiply(i);
-        }
+        for (int i = 1; i < 1001;++i)
+            number = number.multiply(BigInteger.valueOf(i));
+
         System.out.println(number);
     }
 
-    public static void task7()
-    {
-        int number1 = valid_input("Input first number:");
-        if(number1 < 0 || number1 > 65635)
-        {
+    public static void task7() {
+        int number1 = validInput("Input first number:");
+        if(number1 < 0 || number1 > 65635) {
             System.out.println("Error code number");
             return;
         }
-        int number2 = valid_input("Input second number1:");
-        if(number2 < 0 || number2 > 65635)
-        {
+        int number2 = validInput("Input second number1:");
+        if(number2 < 0 || number2 > 65635) {
             System.out.println("Error code number2");
             return;
         }
@@ -122,8 +111,7 @@ public class Main
         System.out.println("Rem = " + ((sh1 & 0xFFFF) % (sh2 & 0xFFFF)));
     }
 
-    public static void task8()
-    {
+    public static void task8() {
         String string;
         Scanner in = new Scanner(System.in);
         System.out.print("Input string: ");
@@ -133,8 +121,7 @@ public class Main
             System.out.println(s);
     }
 
-    public static void task9()
-    {
+    public static void task9() {
         String string1, string2;
         Scanner in = new Scanner(System.in);
         System.out.print("Input first string: ");
@@ -149,11 +136,10 @@ public class Main
             System.out.println("The strings is not equal!");
     }
 
-    public static void task10()
-    {
+    public static void task10() {
         Random random = new Random();
-        long random_number = random.nextLong();
-        String str = Long.toString(random_number, 36);
+        long randomNumber = random.nextLong();
+        String str = Long.toString(randomNumber, 36);
         System.out.println("Result string: " + str);
     }
 
@@ -162,8 +148,7 @@ public class Main
         System.out.println("Input str:");
         Scanner in = new Scanner(System.in);
         String string = in.nextLine();
-        for(int i = 0; i < string.length(); ++i)
-        {
+        for(int i = 0; i < string.length(); ++i) {
             char symbol = string.charAt(i);
             if (symbol > 127)
                 System.out.println("Symbol: " + symbol + ", Unicode: U+" +
@@ -171,16 +156,14 @@ public class Main
         }
     }
 
-    public static void task13()
-    {
+    public static void task13() {
         ArrayList<Integer> array = IntStream.rangeClosed(1, 49).boxed()
                 .collect(Collectors.toCollection(ArrayList::new)),
                 lottery = new ArrayList<>();
         for (int i = 1; i <= 49; ++i)
             array.add(i);
         Random random = new Random();
-        for (int i = 0; i < 6; i++)
-        {
+        for (int i = 0; i < 6; i++) {
             int index = random.nextInt(array.size());
             lottery.add(array.remove(index));
         }
@@ -188,21 +171,18 @@ public class Main
         System.out.println("Lotery combination: " + lottery);
     }
 
-    public static boolean is_magic(int[][] matrix)
-    {
+    public static boolean isMagic(int[][] matrix) {
         int summ = 0;
         for(int number : matrix[0])
             summ += number;
-        for(int i = 1; i < matrix.length; ++i)
-        {
+        for(int i = 1; i < matrix.length; ++i) {
             int summa = 0;
             for(int number : matrix[i])
                 summa += number;
             if(summa != summ)
                 return false;
         }
-        for (int j = 0; j < matrix.length; ++j)
-        {
+        for (int j = 0; j < matrix.length; ++j) {
             int summa = 0;
             for (int i = 0; i < matrix.length; ++i)
                 summa += matrix[i][j];
@@ -223,8 +203,7 @@ public class Main
         return true;
     }
 
-    public static void task14()
-    {
+    public static void task14() {
         ArrayList<int[]> array_rows = new ArrayList<>();
         System.out.println("Input matrix:");
         Scanner scanner = new Scanner(System.in);
@@ -235,20 +214,17 @@ public class Main
                 break;
             String[] parts = str.split("\\s+");
             int[] row = new int[parts.length];
-            try
-            {
+            try {
                 for (int i = 0; i < parts.length; ++i)
                     row[i] = Integer.parseInt(parts[i]);
                 array_rows.add(row);
             }
-            catch (NumberFormatException e)
-            {
+            catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter only numbers separated by spaces.");
                 continue;
             }
         }
-        if (array_rows.isEmpty())
-        {
+        if (array_rows.isEmpty()) {
             System.out.println("Matrix is empty.");
             return;
         }
@@ -256,20 +232,17 @@ public class Main
         int[][] matrix = new int[size][];
         for (int i = 0; i < size; ++i)
             matrix[i] = array_rows.get(i);
-        if (is_magic(matrix))
+        if (isMagic(matrix))
             System.out.println("Matrix is magic square");
         else
             System.out.println("Matrix is magic square");
     }
 
-    public static void task15(int n)
-    {
+    public static void task15(int n) {
         ArrayList<ArrayList<Integer>> triangle = new ArrayList<>();
-        for (int i = 0; i < n; ++i)
-        {
+        for (int i = 0; i < n; ++i) {
             ArrayList<Integer> row = new ArrayList<>();
-            for (int j = 0; j <= i; ++j)
-            {
+            for (int j = 0; j <= i; ++j) {
                 if (j == 0 || j == i)
                     row.add(1);
                 else
@@ -277,50 +250,99 @@ public class Main
             }
             triangle.add(row);
         }
-        int max_length = 0;
-        for (ArrayList<Integer> row : triangle)
-        {
+        int maxLength = 0;
+        for (ArrayList<Integer> row : triangle) {
             for (Integer num : row)
-                max_length = Math.max(max_length, String.valueOf(num).length());
+                maxLength = Math.max(maxLength, String.valueOf(num).length());
         }
 
-        int triangle_width = triangle.size() * (max_length + 1);
+        int triangle_width = triangle.size() * (maxLength + 1);
 
-        for (int i = 0; i < triangle.size(); ++i)
-        {
+        for (int i = 0; i < triangle.size(); ++i) {
             ArrayList<Integer> row = triangle.get(i);
-            int row_width = row.size() * (max_length + 1);
+            int row_width = row.size() * (maxLength + 1);
             int padding = (triangle_width - row_width) / 2;
 
             for (int k = 0; k < padding; ++k)
                 System.out.print(" ");
 
-            for (int j = 0; j < row.size(); ++j)
-            {
-                String formattedNumber = String.format("%" + max_length + "d", row.get(j));
+            for (int j = 0; j < row.size(); ++j) {
+                String formattedNumber = String.format("%" + maxLength + "d", row.get(j));
                 System.out.print(formattedNumber + " ");
             }
             System.out.println();
         }
     }
 
-    public static void task16(double gen_number, double... array_value)
-    {
-        double summ = gen_number;
+    public static void task16(double genNumber, double... array_value) {
+        double summ = genNumber;
         for(double value : array_value)
             summ += value;
         System.out.println("Average = " +
                 (array_value.length == 0 ? summ : summ / (array_value.length + 1)));
     }
 
-    public static void main(String[] args)
+    public static <T extends Number> double AdditionalTask(T ... args)
     {
+        double summ = 0.0;
+        for(T value : args) {
+            summ += value.doubleValue();
+        }
+        return summ;
+    }
+
+    public static void inputChineFirst() {
+        HashMap<Integer, String> chineseSymbols = new HashMap<>();
+        chineseSymbols.put(1, "你");
+        chineseSymbols.put(2, "好");
+        chineseSymbols.put(3, "世");
+        chineseSymbols.put(4, "界");
+        chineseSymbols.put(5, "爱");
+        chineseSymbols.put(6, "和");
+        chineseSymbols.put(7, "平");
+
+        System.out.println("Symbols:");
+        for (Integer key : chineseSymbols.keySet())
+            System.out.println(key + " -> " + chineseSymbols.get(key));
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input numbers:");
+        String input = scanner.nextLine();
+        String[] numbers = input.split(" ");
+
+        System.out.println("Result:");
+        for (String numberStr : numbers) {
+            try {
+                int number = Integer.parseInt(numberStr);
+                if (chineseSymbols.containsKey(number))
+                    System.out.print(chineseSymbols.get(number) + " ");
+                else
+                    System.out.print("[unknown symbol] ");
+            }
+            catch (NumberFormatException e) {
+                System.out.print("[invalid input] ");
+            }
+        }
+    }
+
+    public static void inputChineSecond() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input string:");
+        String input = scanner.nextLine();
+
+        System.out.println("Chinize symbols: ");
+        for (char c : input.toCharArray()) {
+            if (c >= '\u4E00' && c <= '\u9FFF')
+                System.out.print(c + " ");
+        }
+        System.out.print('\n');
+    }
+
+    public static void main(String[] args) {
         int number = 1;
-        while(number != 0)
-        {
-            number = valid_input("Input number 1 - 16 (0 - for exit): ");
-            switch (number)
-            {
+        while(number != 0) {
+            number = validInput("Input number 1 - 19 (0 - for exit): ");
+            switch (number) {
                 case 0:
                     break;
                 case 1:
@@ -363,11 +385,21 @@ public class Main
                     task14();
                     break;
                 case 15:
-                    int n = valid_input("Input n: ");
+                    int n = validInput("Input n: ");
                     task15(n);
                     break;
                 case 16:
                     task16(1, 2, 3, 4, 5, 6, 7, 8);
+                    break;
+                case 17:
+                    double value = AdditionalTask(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+                    System.out.println("Summ = " + value);
+                    break;
+                case 18:
+                    inputChineFirst();
+                    break;
+                case 19:
+                    inputChineSecond();
                     break;
                 default:
                     System.out.println("Incorrect!");
