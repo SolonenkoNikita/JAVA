@@ -1,80 +1,87 @@
 
 public class Car {
-    private double x;
-    private double fuel;
-    private final int maxFuel;
+    private final double fuelEfficiency; // Расход топлива (км/л)
+    private double fuelLevel; // Уровень топлива в баке (литры)
+    private double distanceTraveled; // Пройденное расстояние от начала координат (км)
 
-    /**
-     * Расход топлива в км/л.
-     */
-    private final double consumption;
-
-    public Car(int maxFuel, double consumption) {
-        if (consumption < 0 || maxFuel < 0)
-            throw new RuntimeException("Consumption < 0!");
-        x = 0;
-        fuel = 0;
-        this.maxFuel = maxFuel;
-        this.consumption = consumption;
+    public Car(double fuelEfficiency) {
+        if(fuelEfficiency <= 0) {
+            throw new IllegalArgumentException("Fuel efficiency should be > 0");
+        }
+        this.fuelEfficiency = fuelEfficiency;
+        this.fuelLevel = 0;
+        this.distanceTraveled = 0;
     }
 
-    public Car(int maxFuel, double consumption, double fuel) {
-        this(maxFuel, consumption);
-        addFuel(fuel);
-    }
-
-    public Car(int maxFuel, double consumption, double fuel, double x) {
-        this(maxFuel, consumption);
-        this.x = x;
-        addFuel(fuel);
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getFuel() {
-        return fuel;
-    }
-
-    public double getConsumption() {
-        return consumption;
-    }
-
-    public boolean move(double x) {
-        double length;
-        double spendFuel = x / consumption;
-        if (spendFuel < 0)
-            spendFuel = -spendFuel;
-        if (fuel <= spendFuel) {
-            double s = fuel * consumption;
-            fuel = 0;
-            length = s;
+    public void drive(double distance) {
+        if (distance < 0) {
+            throw new IllegalArgumentException("The distance cannot be negative");
+        }
+        double maxDistance = fuelLevel * fuelEfficiency;
+        if (distance <= maxDistance) {
+            distanceTraveled += distance;
+            fuelLevel -= distance / fuelEfficiency;
         }
         else {
-            fuel -= spendFuel;
-            length = x;
+            distanceTraveled += maxDistance;
+            fuelLevel = 0;
+            System.out.println("Not enough fuel to cover the entire distance");
         }
-        if(x < 0)
-            length = -length;
-        x += length;
-        return length == x;
     }
 
-    public void addFuel(double fuel) {
-        if (fuel + this.fuel > maxFuel)
-            throw new RuntimeException("Too much fuel!");
-        if (fuel + this.fuel < 0)
-            throw new RuntimeException("Fuel < 0!");
-        this.fuel += fuel;
+    public void refuel(double liters) {
+        if (liters < 0)
+            throw new IllegalArgumentException("The amount of fuel cannot be negative");
+        fuelLevel += liters;
+    }
+
+    public double getDistanceTraveled() {
+        return distanceTraveled;
+    }
+
+    public double getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public double getFuelEfficiency() {
+        return fuelEfficiency;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Car: completed %.2f km, fuel tank: %.2f l, consumption: %.2f km/l",
+                distanceTraveled, fuelLevel, fuelEfficiency);
     }
 
     public static void main(String[] args) {
-        Car car = new Car(60, 10, 45);
-        car.addFuel(15);
-        System.out.println(car.getFuel());
-        car.move(-1000);
-        System.out.println(car.getFuel());
-        System.out.println(car.getX());
+        try {
+            Car car = new Car(10);
+
+            car.refuel(30);
+            System.out.println(car);
+
+            // Едем 100 км
+            car.drive(100);
+            System.out.println(car);
+
+            // Едем еще 250 км (должно не хватить топлива)
+            car.drive(250);
+            System.out.println(car);
+
+            car.refuel(20);
+            System.out.println(car);
+
+            car.drive(-50);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        try {
+            Car invalidCar = new Car(-5);
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

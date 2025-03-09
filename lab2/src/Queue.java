@@ -40,7 +40,7 @@ public class Queue {
             node.prevNode = tail;
             tail = node;
         }
-        size++;
+        ++size;
     }
 
     public String remove() {
@@ -55,7 +55,7 @@ public class Queue {
         }
         head = head.nextNode;
         head.prevNode = null;
-        size--;
+        --size;
         return res;
     }
 
@@ -108,7 +108,7 @@ public class Queue {
                 last.nextNode.prevNode = last.prevNode;
             }
 
-            size--;
+            --size;
             canRemove = false;
         }
     }
