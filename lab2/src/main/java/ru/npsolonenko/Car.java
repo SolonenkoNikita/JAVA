@@ -1,3 +1,4 @@
+package ru.npsolonenko;
 
 public class Car {
     private final double fuelEfficiency; // Расход топлива (км/л)

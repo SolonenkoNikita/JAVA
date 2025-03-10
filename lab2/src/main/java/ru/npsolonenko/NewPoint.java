@@ -1,3 +1,4 @@
+package ru.npsolonenko;
 
 public class NewPoint {
     private double x;

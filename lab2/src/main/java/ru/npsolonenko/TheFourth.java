@@ -1,3 +1,4 @@
+package ru.npsolonenko;
 
 public class TheFourth {
 

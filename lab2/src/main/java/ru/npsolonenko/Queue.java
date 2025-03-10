@@ -1,4 +1,4 @@
-
+package ru.npsolonenko;
 
 public class Queue {
 

@@ -1,3 +1,4 @@
+package ru.npsolonenko;
 
 import java.time.LocalDate;
 import static java.time.DayOfWeek.*;

@@ -1,10 +1,10 @@
+package ru.npsolonenko;
 
-import liquibase.util.csv.CSVReader;
 import java.io.FileReader;
-import java.time.LocalDateTime;
+import com.opencsv.CSVReader;
 
 public class TheThirteen {
-    private static final String PATH = "src/images/numbers.csv";
+    private static final String PATH = "src/main/java/numbers.csv";
 
     public static void main(String[] args) throws Exception {
         CSVReader reader = new CSVReader(new FileReader(PATH));
