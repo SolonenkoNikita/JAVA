@@ -5,27 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498926ec-714d-48cf-9d95-c9e1f5b2acdd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lab2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Invoice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Point.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Queue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RandomNum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TheFirst.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TheFourth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TheSecond.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TheThirteen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/NewPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/NewPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/Point.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -33,10 +27,10 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2u7knQ9L4xUHlm8Joz7UATFnaXM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,6 +38,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Point.executor": "Run",
     "Application.TheFourth.executor": "Run",
     "Application.TheThirteen.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -57,6 +52,11 @@
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\lab2\src\main\java" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,16 +67,5 @@
       <updated>1741607168929</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/npsolonenko/TheThirteen.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

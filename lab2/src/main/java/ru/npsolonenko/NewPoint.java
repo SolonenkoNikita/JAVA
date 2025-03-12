@@ -10,6 +10,7 @@ public class NewPoint {
     }
 
     public NewPoint() {
+
         this(0.0, 0.0);
     }
 

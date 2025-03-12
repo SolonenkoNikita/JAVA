@@ -8,6 +8,7 @@ package ru.npsolonenko;
 public final class Point {
 
     private final double x;
+
     private final double y;
 
     /**
@@ -66,5 +67,18 @@ public final class Point {
      */
     public Point scale(double value) {
         return new Point(x * value, y * value);
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x = " + x +
+                ", y = " + y +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        Point p = new Point(3, 4).translate(1, 3).scale(0.5);
+        System.out.println(p);
     }
 }
