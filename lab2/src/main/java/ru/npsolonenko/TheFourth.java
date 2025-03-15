@@ -1,5 +1,8 @@
 package ru.npsolonenko;
 
+
+import java.util.Map;
+
 public class TheFourth {
 
     //Не получится, так как создаются копии
@@ -16,12 +19,29 @@ public class TheFourth {
         b = c;
     }
 
-    //Получится, так как это динамические объекты и в функцию приходят не копии, а ссылки на объекты
-    /*public static void swap(IntHolder a, IntHolder b) {
+    static class IntHolder {
+
+        int value;
+
+        public IntHolder(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "IntHolder{" +
+                    "value=" + value +
+                    '}';
+        }
+    }
+
+    public static void swap(IntHolder a, IntHolder b) {
         int c = a.value;
         a.value = b.value;
         b.value = c;
-    }*/
+    }
+
+
 
     public static void main(String[] args) {
         int a = 100;
@@ -35,5 +55,13 @@ public class TheFourth {
         System.out.println("Was here: a = " + a1 + " b = " + b1);
         swap(a1, b1);
         System.out.println("a = " + a1 + " b = " + b1);
+
+        IntHolder a2 = new IntHolder(5);
+        IntHolder b2 = new IntHolder(6);
+        swap(a2, b2);
+
+        System.out.println(a2);
+        System.out.println(b2);
+
     }
 }
