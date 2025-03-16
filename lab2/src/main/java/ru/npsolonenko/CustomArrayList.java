@@ -43,12 +43,6 @@ public class CustomArrayList {
     }
 
     public int size() {
-        size = 5;
-        int value = size++;
-        size = 5;
-        int value_1 = ++size;
-        System.out.println(value);
-        System.out.println(value_1);
         return size;
     }
 

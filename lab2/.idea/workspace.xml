@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="498926ec-714d-48cf-9d95-c9e1f5b2acdd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/NewPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/NewPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/TheFourth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/TheFourth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/CustomArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/CustomArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/MyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/MyClass.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CustomArrayList.executor": "Run",
+    "Application.MyClass.executor": "Run",
     "Application.NewPoint.executor": "Run",
     "Application.Point.executor": "Run",
     "Application.TheFirst.executor": "Run",

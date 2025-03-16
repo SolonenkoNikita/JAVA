@@ -24,7 +24,7 @@ class MyClass {
 
     public static void main(String[] args) {
         MyClass obj = new MyClass(5);
-
+        Integer i;
         MyClass oldValue = obj.postIncrement();
         System.out.println("Old value: " + oldValue.getValue()); // 5
         System.out.println("New value: " + obj.getValue()); // 6
