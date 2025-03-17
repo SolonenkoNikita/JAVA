@@ -1,5 +1,7 @@
 package ru.npsolonenko;
 
+import java.util.Random;
+
 public interface IntSequence {
     int next();
 
@@ -36,5 +38,21 @@ public interface IntSequence {
 
     static IntSequence constantLambda(int value) {
         return () -> value;
+    }
+
+    class RandomSequence implements IntSequence {
+
+        final Random generator = new Random();
+        int high;
+        int low;
+
+        public RandomSequence(int low, int high) {
+            this.high = high;
+            this.low = low;
+        }
+
+        public int next() {
+            return low + generator.nextInt(high - low + 1);
+        }
     }
 }
