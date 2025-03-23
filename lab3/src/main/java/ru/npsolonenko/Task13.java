@@ -14,6 +14,7 @@ public class Task13 {
                 () -> System.out.println("Task 1"),
                 () -> System.out.println("Task 2"),
                 () -> System.out.println("Task 3")
+
         };
 
         Runnable combinedTask = combineRunnables(tasks);

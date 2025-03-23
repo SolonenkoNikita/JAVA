@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="498926ec-714d-48cf-9d95-c9e1f5b2acdd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/CustomArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/CustomArrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/MyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/npsolonenko/MyClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lab3/src/main/java/ru/npsolonenko/Task13.java" beforeDir="false" afterPath="$PROJECT_DIR$/../lab3/src/main/java/ru/npsolonenko/Task13.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user/IdeaProjects/lab1",
+    "last_opened_file_path": "C:/Users/user/IdeaProjects/lab2",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
