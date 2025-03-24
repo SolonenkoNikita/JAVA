@@ -16,7 +16,6 @@ public class Task_8 {
 
         Class<?> innerClass = InnerClass.class;
 
-
         System.out.println(" The primitive type (int)");
         printClassInfo(intClass);
 
@@ -25,7 +24,7 @@ public class Task_8 {
 
         System.out.println("\n\n Generalized type (List)" );
         printClassInfo(listClass);
-        
+
         System.out.println("\n\n (InnerClass)");
         printClassInfo(innerClass);
     }
