@@ -12,7 +12,7 @@ public class Task1_2 {
         double averageSalary = Employee.average(employees);
         System.out.println("Average salary: " + averageSalary);
 
-        Measurable maxMeasurable = Measurable.largest(employees);
+        Measurable maxMeasurable = Employee.largest(employees);
 
         if (maxMeasurable instanceof Employee maxEmployee)
             System.out.println("Employee with max salary: " + maxEmployee.getName());
