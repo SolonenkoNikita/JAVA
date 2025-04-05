@@ -48,8 +48,8 @@ public class SortedStreamJoiner {
     }
 
     public static void main(String[] args) {
-        List<Integer> list1 = Arrays.asList(1, 3, 7);
-        List<Integer> list2 = Arrays.asList(2, 4, 6, 5);
+        List<Integer> list1 = Arrays.asList();
+        List<Integer> list2 = Arrays.asList();
 
         Iterator<Integer> mergedNumbers = new SortedStreamJoiner().joinSortedStreams(
                 list1.iterator(),
