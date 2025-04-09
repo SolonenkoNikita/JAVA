@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Lab1_2_3 {
+public class Task1_2_3 {
 
     private static final String FILE_PATH_TO_CORRECTED_DATA =
             "src/main/files/correct.txt";
