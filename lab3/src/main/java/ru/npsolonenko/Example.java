@@ -1,6 +1,10 @@
 package ru.npsolonenko;
 
+import java.util.ArrayList;
+
 public class Example {
+
+
 
     static class A {
 
@@ -27,8 +31,20 @@ public class Example {
     }
 
     public static void main(String[] args) {
-        A a = new B();
-        helloA(a);
+        ArrayList<Runnable> array = new ArrayList<>();
+        //f = x -> x * x
+        array.add(() -> {
+            System.out.println("LAMDA");
+        });
+        array.add(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("ANNONIMUS HAHAHHHAHA");
+            }
+        });
+
+
+
     }
 
 

@@ -1,6 +1,7 @@
 package ru.npsolonenko;
 
 class DiscountedItem extends Item {
+
     private double discount;
 
     public DiscountedItem(String description, double price, double discount) {
@@ -23,12 +24,19 @@ class DiscountedItem extends Item {
     }
 
     public static void main(String[] args) {
-        Item x = new Item("Book", 10.0);
+        String str1 = new String("abc");
+        String str2 = new String("abc");
+
+        System.out.println(str1 == str2);
+        System.out.println(str1.equals(str2));
+        System.out.println(str2.equals(str1));
+
+        /*Item x = new Item("Book", 10.0);
         DiscountedItem y = new DiscountedItem("Book", 10.0, 1.0);
         Item z = new Item("Book", 10.0);
 
         System.out.println(x.equals(y));
-        System.out.println(y.equals(z));
+        System.out.println(y.equals(z));*/
 
     }
 }
