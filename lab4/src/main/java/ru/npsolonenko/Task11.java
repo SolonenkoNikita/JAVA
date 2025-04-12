@@ -2,7 +2,7 @@ package ru.npsolonenko;
 
 import java.lang.reflect.Field;
 
-public class Task_11 {
+public class Task11 {
 
     public static void main(String[] args){
         try {

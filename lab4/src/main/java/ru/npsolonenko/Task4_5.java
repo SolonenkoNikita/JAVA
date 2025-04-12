@@ -1,6 +1,6 @@
 package ru.npsolonenko;
 
-public class Task_4_5 {
+public class Task4_5 {
 
     public static void main(String[] args) {
         Line line = new Line(new Point(-1, 100), new Point(31.5, -12));

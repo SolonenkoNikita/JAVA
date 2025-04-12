@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
 
-public class Task_13 {
+public class Task13 {
 
     public static void printTable(Method method, double start, double end, double step) {
         System.out.println("Table for method: " + method.getName());

@@ -2,7 +2,7 @@ package ru.npsolonenko;
 
 import java.util.List;
 
-public class Task_8 {
+public class Task8 {
 
     public static class InnerClass {}
 

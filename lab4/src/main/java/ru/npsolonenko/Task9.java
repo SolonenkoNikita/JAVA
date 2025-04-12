@@ -1,6 +1,6 @@
 package ru.npsolonenko;
 
-public class Task_9 {
+public class Task9 {
 
     static class Parent {
 

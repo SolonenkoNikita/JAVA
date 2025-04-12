@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
-public class Task_12 {
+public class Task12 {
 
     public static void main(String[] args) {
         Point point = new Point(0, 1);
