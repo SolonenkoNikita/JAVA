@@ -17,11 +17,6 @@ public class ExampleForEnum {
         };
     }
 
-    class C implements AI, BI {
-
-        
-
-    }
 
 
 

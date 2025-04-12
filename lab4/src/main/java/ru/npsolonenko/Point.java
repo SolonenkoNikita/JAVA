@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Point
 {
+    Object d;
     protected double x;
     protected double y;
 

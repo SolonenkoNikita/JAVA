@@ -11,8 +11,7 @@ public class Task_12 {
 
         int[] iterations = { 100, 1000, 10000, 100000,
                 200000, 1000000, 2000000, 3000000,
-                10000000, 20000000, 30000000, 100000000, 200000000,
-                300000000, 400000000, 500000000, 600000000, 1000000000 };
+                10000000, 20000000, 30000000};
 
         try (FileWriter writer = new FileWriter("results.txt")) {
             writer.write("Iterations,DirectTime(ms),ReflectionTime(ms)\n");
