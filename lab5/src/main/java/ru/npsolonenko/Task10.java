@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class Task10 {
 
+    public static void main(String[] args) {
+        System.out.println(factorialWithStackTrace(4));
+    }
+
     public static int factorialWithStackTrace(int number) {
         if (number == 1)
             return 1;
@@ -11,8 +15,4 @@ public class Task10 {
         return factorialWithStackTrace(number - 1) * number;
     }
 
-
-    public static void main(String[] args) {
-        System.out.println(factorialWithStackTrace(4));
-    }
 }

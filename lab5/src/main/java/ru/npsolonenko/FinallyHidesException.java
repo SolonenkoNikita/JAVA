@@ -1,5 +1,7 @@
 package ru.npsolonenko;
 
+import java.io.PrintWriter;
+
 public class FinallyHidesException {
 
     public static void main(String[] args) {

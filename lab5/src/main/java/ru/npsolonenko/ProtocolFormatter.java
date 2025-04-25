@@ -13,6 +13,24 @@ public class ProtocolFormatter {
     private List<ProtocolEntry> entries = new ArrayList<>();
     private String title;
 
+    public static void main(String[] args) {
+        ProtocolFormatter formatter = new ProtocolFormatter("System operation protocol");
+
+        formatter.addEntry("2023-05-15 10:00:00", "INFO", "Система запущена");
+        formatter.addEntry("2023-05-15 10:05:23", "WARNING", "Недостаточно памяти");
+        formatter.addEntry("2023-05-15 10:07:45", "ERROR", "Ошибка подключения к БД");
+        formatter.addEntry("2023-05-15 10:10:12", "INFO", "Попытка переподключения");
+        formatter.addEntry("2023-05-15 10:12:34", "INFO", "Подключение восстановлено");
+
+        try {
+            formatter.generateHtmlFile(HTML);
+            System.out.println("The HTML file of the protocol has been successfully created!");
+        }
+        catch (IOException e) {
+            System.err.println("Error when creating an HTML file: " + e.getMessage());
+        }
+    }
+
     public ProtocolFormatter(String title) {
         this.title = title;
     }
@@ -78,24 +96,6 @@ public class ProtocolFormatter {
             this.timestamp = timestamp;
             this.level = level;
             this.message = message;
-        }
-    }
-
-    public static void main(String[] args) {
-        ProtocolFormatter formatter = new ProtocolFormatter("System operation protocol");
-
-        formatter.addEntry("2023-05-15 10:00:00", "INFO", "Система запущена");
-        formatter.addEntry("2023-05-15 10:05:23", "WARNING", "Недостаточно памяти");
-        formatter.addEntry("2023-05-15 10:07:45", "ERROR", "Ошибка подключения к БД");
-        formatter.addEntry("2023-05-15 10:10:12", "INFO", "Попытка переподключения");
-        formatter.addEntry("2023-05-15 10:12:34", "INFO", "Подключение восстановлено");
-
-        try {
-            formatter.generateHtmlFile(HTML);
-            System.out.println("The HTML file of the protocol has been successfully created!");
-        }
-        catch (IOException e) {
-            System.err.println("Error when creating an HTML file: " + e.getMessage());
         }
     }
 }

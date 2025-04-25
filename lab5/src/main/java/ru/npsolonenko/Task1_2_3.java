@@ -13,12 +13,16 @@ public class Task1_2_3 {
     private static final String FILE_PATH_TO_UNCORRECTED_DATA =
             "src/main/files/uncorrect.txt";
 
+    public static void main(String[] args) {
+        printSumOfValues(FILE_PATH_TO_UNCORRECTED_DATA);
+    }
+
     private static double calculateSum(List<Double> list) {
         double sum = 0;
         for (double number : list) {
             sum += number;
             if (sum == Double.POSITIVE_INFINITY || sum == Double.NEGATIVE_INFINITY)
-                throw new RuntimeException("Sum of values > Double.MAX");
+                throw new RuntimeException("Sum of values in file > Double.MAX!");
         }
         return sum;
     }
@@ -36,29 +40,18 @@ public class Task1_2_3 {
         List<Double> numbers = readValues(filename);
         return calculateSum(numbers);
     }
+
     public static void printSumOfValues(String filename) {
         try {
             System.out.println(sumOfValues(filename));
+        } catch (FileNotFoundException e) {
+            System.err.println("Error opening or reading from a file: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Some of the data in the file aren't double numbers: " + e.getMessage());
+        } catch (IllegalStateException e) {
+            System.err.println("File closing error: " + e.getMessage());
+        } catch (RuntimeException e) {
+            System.err.println(e.getMessage());
         }
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.err.println(e + " Error opening or reading from a file!");
-        }
-        catch (NumberFormatException e) {
-            e.printStackTrace();
-            System.err.println(e + " Some of the data in the file are'nt double numbers!");
-        }
-        catch (IllegalStateException e) {
-            e.printStackTrace();
-            System.err.println(e + " File closing error!");
-        }
-        catch (RuntimeException e) {
-            e.printStackTrace();
-            System.err.println(e + " Sum of values in file > Double.MAX!");
-        }
-    }
-
-    public static void main(String[] args) {
-        printSumOfValues(FILE_PATH_TO_UNCORRECTED_DATA);
     }
 }

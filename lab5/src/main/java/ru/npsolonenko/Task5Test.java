@@ -1,12 +1,13 @@
 package ru.npsolonenko;
 
+import org.mockito.Mockito;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class Task5 {
+public class Task5Test {
 
     private static final String OUTPUT = "src/main/files/output.txt";
     private static final String DATA = "src/main/files/Task5.txt";
@@ -30,7 +31,9 @@ public class Task5 {
         Scanner in = null;
         PrintWriter out = null;
         try {
-            in = new Scanner(Paths.get(DATA));
+            //  in = new Scanner(Paths.get(DATA));
+            in = Mockito.mock(Scanner.class);
+            Mockito.when(in.next()).thenThrow(new RuntimeException("Simulated IO error"));
             out = new PrintWriter(OUTPUT);
             while (in.hasNext())
                 out.print(in.next().toUpperCase() + " ");
@@ -42,13 +45,5 @@ public class Task5 {
             close(in);
             close(out);
         }
-    }
-
-    protected Scanner createScanner(String filePath) throws IOException {
-        return new Scanner(Paths.get(filePath));
-    }
-
-    protected PrintWriter createPrintWriter(String filePath) throws IOException {
-        return new PrintWriter(filePath);
     }
 }

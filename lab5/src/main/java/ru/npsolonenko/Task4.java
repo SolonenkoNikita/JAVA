@@ -17,6 +17,10 @@ public class Task4 {
 
     private static double result = 0;
 
+    public static void main(String[] args) {
+        printSumOfValues(FILE_PATH_TO_CORRECTED_DATA);
+    }
+
     private static int calculateSum(List<Double> numbers) {
         for (double number : numbers) {
             result += number;
@@ -53,10 +57,6 @@ public class Task4 {
             System.out.println("We caught error code");
         else
             System.out.println("Answer: " + result);
-    }
-
-    public static void main(String[] args) {
-        printSumOfValues(FILE_PATH_TO_UNCORRECTED_DATA);
     }
 
 }

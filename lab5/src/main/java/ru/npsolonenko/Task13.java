@@ -13,6 +13,15 @@ public class Task13 {
             "секс", "наркотики", "с++", "си++"
     );
 
+    public static void main(String[] args) {
+        try {
+            filterProtocol(INPUT_FILE, OUTPUT_FILE);
+            System.out.println("Success");
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+
     private static final String REPLACEMENT = "[ЦЕНЗУРА]";
 
     public static void filterProtocol(String inputPath, String outputPath) throws IOException {
@@ -49,15 +58,4 @@ public class Task13 {
                 lowerWord.contains("наркотик") ||
                 lowerWord.matches(".*c\\+\\+.*");
     }
-
-    public static void main(String[] args) {
-
-        try {
-            filterProtocol(INPUT_FILE, OUTPUT_FILE);
-            System.out.println("Success");
-        } catch (IOException e) {
-            System.err.println("Error: " + e.getMessage());
-        }
-    }
-
 }
